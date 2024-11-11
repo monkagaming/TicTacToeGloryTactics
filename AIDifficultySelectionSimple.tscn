@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct4pufcjpsral"]
+
+[ext_resource type="Script" path="res://Scripts/AIDifficultySelectionSimple.gd" id="1_snmy3"]
+[ext_resource type="Script" path="res://Scripts/fps_counter_AIDifficultySelectionSimple.gd" id="2_p3fcg"]
+
+[node name="AIDifficultySelectionSimple" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_snmy3")
+tween_intensity = 1.2
+tween_duration = 0.3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2008.0
+offset_bottom = 1061.0
+color = Color(0, 0, 0, 1)
+
+[node name="AIDifficulty" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 150
+text = "AI Difficulty?"
+
+[node name="EasyButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 222.0
+offset_right = 835.0
+offset_bottom = 1063.0
+theme_override_font_sizes/font_size = 120
+text = "Easy"
+
+[node name="MediumButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 221.0
+offset_right = 1468.0
+offset_bottom = 1062.0
+theme_override_font_sizes/font_size = 120
+text = "Medium"
+
+[node name="HardButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1464.0
+offset_top = 217.0
+offset_right = 1995.0
+offset_bottom = 1060.0
+theme_override_font_sizes/font_size = 120
+text = "Hard"
+
+[node name="BackToTheSimplePlayMode" type="Button" parent="."]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 15.0
+offset_right = 1912.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 125
+text = "Back"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 0)
+transform = Transform2D(1, 0, 0, 1, 10, 0)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_p3fcg")
+
+[node name="FPS_COUNTER_AIDifficultySelectionSimple" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button9ClickPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"custombuslayout"
+
+[connection signal="pressed" from="EasyButton2" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="MediumButton2" to="." method="_on_medium_button_pressed"]
+[connection signal="pressed" from="HardButton2" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="BackToTheSimplePlayMode" to="." method="_on_BackToTheSimplePlayMode_pressed"]

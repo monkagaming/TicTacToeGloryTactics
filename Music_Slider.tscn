@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://chph1nhfvl3vh"]
+
+[ext_resource type="Script" path="res://Scripts/music_slider.gd" id="1_b2txs"]
+
+[node name="Music Slider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b2txs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 599.0
+offset_bottom = 45.0
+theme_override_constants/separation = 42
+
+[node name="AudioLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 32
+text = "Volume Slider"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Volume_Slider" type="HSlider" parent="HBoxContainer"]
+custom_minimum_size = Vector2(325, 32)
+layout_mode = 2
+size_flags_vertical = 1
+step = 0.001
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="AudioNumberLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0.0%"
+
+[connection signal="value_changed" from="HBoxContainer/Volume_Slider" to="." method="_on_Volume_Slider_value_changed"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk643mcp65dtu"]
+
+[ext_resource type="Script" path="res://Scripts/playmodeselectionultimate.gd" id="1_f5l5c"]
+[ext_resource type="Script" path="res://Scripts/fps_counter_PlayModeSelectionUltimate.gd" id="2_faflv"]
+
+[node name="PlayModeSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f5l5c")
+tween_intensity = 1.2
+tween_duration = 0.3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1940.0
+offset_bottom = 1029.0
+color = Color(0, 0, 0, 1)
+
+[node name="HowWouldYouLikeToPlay" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 1344.0
+offset_bottom = 319.0
+theme_override_font_sizes/font_size = 100
+text = "How would you like to play?"
+
+[node name="MultiplayerButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 322.0
+offset_right = 655.0
+offset_bottom = 1029.0
+theme_override_font_sizes/font_size = 120
+disabled = true
+text = "Multiplayer 
+(Coming 
+Soon)"
+
+[node name="AIModeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 318.0
+offset_right = 1314.0
+offset_bottom = 1028.0
+theme_override_font_sizes/font_size = 120
+text = "AI"
+
+[node name="YourselfButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1318.0
+offset_top = 318.0
+offset_right = 1940.0
+offset_bottom = 1026.0
+theme_override_font_sizes/font_size = 120
+text = "Yourself"
+
+[node name="BackToUltimateOrSimple" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1380.0
+offset_top = 34.0
+offset_right = 1900.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 120
+text = "Back"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 0)
+transform = Transform2D(1, 0, 0, 1, 10, 0)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_faflv")
+
+[node name="FPS_COUNTER_PlayModeSelectionUltimate" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button3ClickPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"custombuslayout"
+
+[connection signal="pressed" from="MultiplayerButton" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="AIModeButton" to="." method="_on_AIModeButton_pressed"]
+[connection signal="pressed" from="YourselfButton" to="." method="_on_yourself_pressed"]
+[connection signal="pressed" from="BackToUltimateOrSimple" to="." method="_on_BackToUltimateOrSimple_pressed"]

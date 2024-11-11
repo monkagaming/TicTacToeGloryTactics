@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt2vhwell4bob"]
+
+[ext_resource type="Script" path="res://Scripts/play_selection.gd" id="1_1pakq"]
+[ext_resource type="Script" path="res://Scripts/fps_counter_ultimate_or_simple.gd" id="2_yc5ci"]
+
+[node name="UltimateOrSimple" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1pakq")
+tween_intensity = 1.2
+tween_duration = 0.3
+
+[node name="Button2ClickPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"custombuslayout"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 1951.0
+offset_bottom = 1009.0
+color = Color(0, 0, 0, 1)
+
+[node name="WhatDoYouWantToPlay" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 31.0
+offset_right = 1345.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 100
+text = "What do you want to play?"
+
+[node name="UltimateTicTacToeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 293.0
+offset_right = 984.0
+offset_bottom = 1006.0
+theme_override_font_sizes/font_size = 75
+text = "Ultimate Tic Tac Toe"
+
+[node name="SimpleTicTacToeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 293.0
+offset_right = 1944.0
+offset_bottom = 1012.0
+theme_override_font_sizes/font_size = 75
+text = "Simple Tic Tac Toe"
+
+[node name="BackToUIButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1398.0
+offset_top = 4.0
+offset_right = 1898.0
+offset_bottom = 253.0
+theme_override_font_sizes/font_size = 55
+text = "Back to homepage"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 0)
+transform = Transform2D(1, 0, 0, 1, 10, 0)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_yc5ci")
+
+[node name="FPS_COUNTER_ULTIMATE_OR_SIMPLE" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TutorialButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 206.0
+offset_right = 1023.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 45
+text = "Tutorial on how to play Ultimate Tic Tac Toe"
+
+[connection signal="pressed" from="UltimateTicTacToeButton" to="." method="_on_UltimateTicTacToeButton_pressed"]
+[connection signal="pressed" from="SimpleTicTacToeButton" to="." method="_on_SimpleTicTacToeButton_pressed"]
+[connection signal="pressed" from="BackToUIButton" to="." method="_on_BackToUI_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_TutorialButton_pressed"]

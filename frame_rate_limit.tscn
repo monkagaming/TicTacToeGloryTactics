@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn5qmai4e63d2"]
+
+[ext_resource type="Script" path="res://Scripts/frame_rate_limit.gd" id="1_2krq4"]
+
+[node name="FrameRateLimit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2krq4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FrameRateLimitLbl" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Frame Rate Limit"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="FPSInput" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+text = "FPS 1-120"
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="InvalidLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2

@@ -1,0 +1,194 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkp0l02iuatf6"]
+
+[ext_resource type="Script" path="res://Scripts/AISimpleTicTacToe.gd" id="1_xsn0x"]
+[ext_resource type="Script" path="res://Scripts/fps_counter_AISimpleTicTacToe.gd" id="2_mjrv7"]
+
+[sub_resource type="Environment" id="Environment_1sqnl"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 3.5
+glow_levels/2 = 3.5
+glow_levels/4 = 1.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_blend_mode = 1
+
+[node name="AISimpleTicTacToe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 725.0
+offset_top = 410.0
+offset_right = 725.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xsn0x")
+tween_intensity = 1.2
+tween_duration = 0.3
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -93.0
+offset_top = 151.0
+offset_right = 113.0
+offset_bottom = 352.0
+color = Color(0, 0, 0, 1)
+
+[node name="Cells" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = -86.0
+offset_top = 156.0
+offset_right = 153.0
+offset_bottom = 377.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="WinnerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -80.0
+offset_top = -289.0
+offset_right = 84.0
+offset_bottom = -186.0
+theme_override_font_sizes/font_size = 75
+text = "Won"
+
+[node name="HomeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -199.0
+offset_right = 119.0
+offset_bottom = -88.0
+theme_override_font_sizes/font_size = 75
+text = "Home"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 0)
+transform = Transform2D(1, 0, 0, 1, 10, 0)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_mjrv7")
+
+[node name="FPS_COUNTER_AISimpleTicTacToe" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -742.0
+offset_top = -416.0
+offset_right = -340.0
+offset_bottom = 596.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -462.0
+offset_top = -417.0
+offset_right = 667.0
+offset_bottom = -288.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 411.0
+offset_top = -289.0
+offset_right = 667.0
+offset_bottom = 598.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -465.0
+offset_top = 484.0
+offset_right = 420.0
+offset_bottom = 595.0
+color = Color(0, 0, 0, 1)
+
+[node name="AIHomePageButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 661.0
+offset_top = -414.0
+offset_right = 1192.0
+offset_bottom = 593.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 100
+text = "Back
+To
+Homepage"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -600.0
+offset_top = -381.0
+offset_right = 561.0
+offset_bottom = -332.0
+theme_override_font_sizes/font_size = 35
+text = "Use scroll keys on keyboard to play or use mouse to play if you want."
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -736.0
+offset_top = 200.0
+offset_right = -360.0
+offset_bottom = 593.0
+theme_override_font_sizes/font_size = 45
+text = "Give suggestions 
+or report bugs by 
+adding me on 
+Discord by going 
+back to the 
+homepage."
+
+[node name="SimpleRematchButton34" type="Button" parent="."]
+layout_mode = 0
+offset_left = -161.0
+offset_top = -91.0
+offset_right = 168.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 75
+text = "Rematch"
+
+[node name="Button7ClickPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"custombuslayout"
+
+[node name="XIsPlaying" type="Label" parent="."]
+layout_mode = 0
+offset_left = -124.0
+offset_top = 384.0
+offset_right = 187.0
+offset_bottom = 453.0
+theme_override_font_sizes/font_size = 50
+text = "X is Playing..."
+
+[node name="OIsPlaying" type="Label" parent="."]
+layout_mode = 0
+offset_left = -130.0
+offset_top = 384.0
+offset_right = 189.0
+offset_bottom = 453.0
+theme_override_font_sizes/font_size = 50
+text = "O is Playing..."
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1sqnl")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 496.0
+offset_right = 452.0
+offset_bottom = 593.0
+text = "reset"
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="AIHomePageButton" to="." method="_on_aihomepagebutton_pressed"]
+[connection signal="pressed" from="SimpleRematchButton34" to="." method="_on_simplerematchbutton34_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

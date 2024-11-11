@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://1d8nk85dvb3o"]
+
+[ext_resource type="Script" path="res://Scripts/PlayModeSelectionSimple.gd" id="1_8lbmu"]
+[ext_resource type="Script" path="res://Scripts/fps_counter_PlayModeSelectionSimple.gd" id="2_rljwb"]
+
+[node name="PlayModeSelectionSimple" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8lbmu")
+tween_intensity = 1.2
+tween_duration = 0.3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1946.0
+offset_bottom = 1058.0
+color = Color(0, 0, 0, 1)
+
+[node name="HowWouldYouLikeToPlay2" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1938.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 90
+text = "How would you like to play?"
+
+[node name="MultiplayerButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 200.0
+offset_right = 677.0
+offset_bottom = 1062.0
+theme_override_font_sizes/font_size = 120
+disabled = true
+text = "Multiplayer
+(Coming
+Soon)"
+
+[node name="AIButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 195.0
+offset_right = 1322.0
+offset_bottom = 1062.0
+theme_override_font_sizes/font_size = 120
+text = "AI"
+
+[node name="YourselfButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1327.0
+offset_top = 195.0
+offset_right = 1940.0
+offset_bottom = 1062.0
+theme_override_font_sizes/font_size = 120
+text = "Yourself"
+
+[node name="BackToSimpleOrUltimate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.348
+anchor_bottom = 0.124
+offset_left = 1242.0
+offset_top = 3.0
+offset_right = 1253.1
+offset_bottom = 67.648
+theme_override_font_sizes/font_size = 110
+text = "Back"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 0)
+transform = Transform2D(1, 0, 0, 1, 10, 0)
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_rljwb")
+
+[node name="FPS_COUNTER_PlayModeSelectionSimple" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button8ClickPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"custombuslayout"
+
+[connection signal="pressed" from="MultiplayerButton" to="." method="_on_multiplayer_button_pressed"]
+[connection signal="pressed" from="AIButton" to="." method="_on_ai_button_pressed"]
+[connection signal="pressed" from="YourselfButton" to="." method="_on_yourself_button_pressed"]
+[connection signal="pressed" from="BackToSimpleOrUltimate" to="." method="_on_BackToSimpleOrUltimate_pressed"]
